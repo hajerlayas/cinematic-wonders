@@ -11,7 +11,7 @@
             }
             footer{
                 background-color: #42a5f5 ; 
-            }
+            }  
         </style>
     </head>
     <body>
