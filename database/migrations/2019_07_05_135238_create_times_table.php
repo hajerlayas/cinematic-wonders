@@ -18,7 +18,7 @@ class CreateTimesTable extends Migration
             $table->date('date');
             $table->time('start');
             $table->time('end');
-            $table->int('movie_id');
+            $table->bigInteger('movie_id');
 
             $table->foreign('movie_id')
             ->references('id')->on('movies')
