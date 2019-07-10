@@ -2,7 +2,7 @@
 
 <p>
 {{ $movie->name }}
-<img height="200" src="{{ asset($movie->img ) }}">
+<img height="200" src="{{ url('storage/' . $movie->img) }}">
 <a href="{{ url("movies/{$movie->id}/times/create") }}">Add Time</a>
 </p>
 
