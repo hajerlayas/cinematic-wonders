@@ -18,8 +18,11 @@ Route::get('admin','view_moviesController@view');
 Route::get('admin/view_info/{id}','view_moviesController@get_info');
 Route::patch('admin/view_info/{id}', 'view_moviesController@update');
 Route::get('movies_page/{id}','view_moviesController@index');
-Route::get('movies','view_moviesController@movies');
+Route::get('show_movies','view_moviesController@movies');
 Route::get('book_tickets/{id}','view_moviesController@book_tickets');
+
+
+
 Route::get('movies/create', 'movieController@create');
 Route::post('movies'      , 'movieController@store' );
 
