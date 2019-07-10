@@ -18,13 +18,15 @@ class CreateTimesTable extends Migration
             $table->date('date');
             $table->time('start');
             $table->time('end');
-            $table->bigInteger('movie_id');
+            $table->bigInteger('movie_id')->unsigned();
+            
+            $table->timestamps();
+        });
 
+        Schema::table('times', function(Blueprint $table) {
             $table->foreign('movie_id')
             ->references('id')->on('movies')
             ->onDelete('cascade');
-            
-            $table->timestamps();
         });
     }
 
