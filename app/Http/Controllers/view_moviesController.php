@@ -45,8 +45,13 @@ class view_moviesController extends Controller
     }
 
     public function book_tickets ($id){
-        $movie = movie::all();
-        return view('book_tickets')->with('movie', movie::find($id));  
+        $times = Movie::find($id)->times;
+        return view('book_tickets')->with('times', $times);  
+    }
+
+    public function book($movie_id)
+    {
+        
     }
 
 }
