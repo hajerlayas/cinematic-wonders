@@ -30,7 +30,7 @@
                             <a href="" class="nav-link">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a href="" class="nav-link">Movies</a>
+                            <a href="movies" class="nav-link">Movies</a>
                         </li>
 
                         <li class="nav-item dropdown">
