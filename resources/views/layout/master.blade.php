@@ -31,7 +31,7 @@
                             <a href="" class="nav-link">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a href="movies" class="nav-link">Movies</a>
+                            <a href="{{url('show_movies')}}" class="nav-link">Movies</a>
                         </li>
 
                         <li class="nav-item dropdown">
