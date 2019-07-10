@@ -14,8 +14,8 @@
                 </div>
 
                 <div class="card-footer">
-                <a class="btn btn-primary" href="#" role="button">show more</a>
                 <a class="btn btn-primary" href="{{ url('admin/view_info/' . $movie->id )}} " role="button">edit</a>
+                <a class="btn btn-primary" href="{{ url("movies/{$movie->id}/times/create") }}" role="button">Add Time</a>
                 </div>
             </div>
           </div>

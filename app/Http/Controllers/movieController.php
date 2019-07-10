@@ -9,7 +9,7 @@ use \App\Time;
 class movieController extends Controller
 {
     public function index()
-    {
+    { 
         return view('movies.index')->with('movies', \App\Movie::all());
     }
     public function create(){
