@@ -5,7 +5,8 @@
 <div class="card-body">
 <h3 class="card-title">{{ $movie->name }}</h3>
     <p class="card-text text-muted">{{ $movie->status }}</p><br>
-    <p>rating</p> <a class="btn btn-primary" href="{{ url('book_tickets/' . $movie->id )}} " role="button">book a ticket</a>
+    <p>rating</p> 
+    <a class="btn btn-primary" href="{{ url('book_tickets/' . $movie->id )}} " role="button">book a ticket</a>
 </div>
 
 <div class="card-footer">
