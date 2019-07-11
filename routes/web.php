@@ -26,7 +26,6 @@ Route::get('book_tickets/{id}','view_moviesController@book_tickets');
 Route::get('movies/create', 'movieController@create');
 Route::post('movies'      , 'movieController@store' );
 
-//Route::get('movies', 'movieController@index'); //this will list the movies
 Route::get('movies/{movie_id}/times/create', 'MovieTimeController@create');
 Route::post('movies/{movie_id}/times', 'MovieTimeController@store');
 
