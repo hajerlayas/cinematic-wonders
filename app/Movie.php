@@ -16,4 +16,8 @@ class Movie extends Model
     {
         return $this->belongsToMany('App\Catagories');
     }
+
+    public function dates(){
+        return $this->belongsToMany('App\Date');
+    }
 }
