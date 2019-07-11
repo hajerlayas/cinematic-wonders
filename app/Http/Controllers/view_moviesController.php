@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use \App\movie;
+use \App\Time;
 
 class view_moviesController extends Controller
 {
@@ -36,7 +37,8 @@ class view_moviesController extends Controller
     }
     public function index ($id){
         $movie = movie::all();
-        return view('movies_page')->with('movie', movie::find($id));  
+        $times = Movie::find($id)->times;
+        return view('movies_page')->with('movie', movie::find($id))->with('times', $times);  
     }
 
     public function movies (){
@@ -45,7 +47,7 @@ class view_moviesController extends Controller
     }
 
     public function book_tickets ($id){
-        $times = Movie::find($id)->times;
+        $times = Time::where('movie_id',$id)->get();
         return view('book_tickets')->with('times', $times);  
     }
 
