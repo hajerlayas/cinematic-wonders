@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use \App\movie;
 use \App\Time;
+use \App\Date;
 
 class view_moviesController extends Controller
 {
@@ -48,6 +49,7 @@ class view_moviesController extends Controller
 
     public function book_tickets ($id){
         $times = Time::where('movie_id',$id)->get();
+        // $dates = Date::where('movie_id',$id);
         return view('book_tickets')->with('times', $times);  
     }
 
