@@ -23,6 +23,6 @@ class MovieTimeController extends Controller
         
         $new_time->save();
 
-        return redirect('/movies');
+        return redirect('/admin');
     }
 }
