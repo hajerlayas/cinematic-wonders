@@ -6,7 +6,7 @@
 
 <select name="" id="">
 @foreach($times as $time)
-<option value="{{ $time->id }}">{{ $time->date . ' - ' . $time->start }}</option>
+    <option value="{{ $time->id }}">{{ $time->date . ' - ' . $time->start }}</option>
 @endforeach
 </select>
 <form action="{{ url('book') }}" method="post ">
