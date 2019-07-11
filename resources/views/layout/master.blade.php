@@ -30,9 +30,6 @@
                         <li class="nav-item">
                             <a href="#" class="nav-link">Home</a>
                         </li>
-                        <li class="nav-item">
-                            <a href="{{url('show_movies')}}" class="nav-link">Movies</a>
-                        </li>
 
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Movies</a>
@@ -41,7 +38,7 @@
                                 <a class="dropdown-item" href="#">Another action</a>
                                 <a class="dropdown-item" href="#">Something else here</a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#">Separated link</a>
+                                <a class="dropdown-item" href="{{url('show_movies')}}">show all</a>
                             </div>
                         </li>
 
