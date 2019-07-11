@@ -21,13 +21,12 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
             <div class="container">
                 <!--<a class="navbar-brand" href="{{ url('/') }}">
                     {{ config('app.name', 'Laravel') }}
                 </a>-->
                 
-                <nav class="navbar navbar-expand-lg navbar-light deep-purple">
                 <div class="navbar-brand">
                     <img src="" alt="" height="">
                     <span>Cinematic Wonders</span>
@@ -36,17 +35,23 @@
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>
+
                 <div id="myNav" class="collapse navbar-collapse">
+                    @auth
                     <ul class="navbar-nav ">
                         <li class="nav-item">
-                            <a href="" class="nav-link">Home</a>
+                            <a href="/home" class="nav-link">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a href="" class="nav-link">add movies</a>
+                            <a href="movies/create" class="nav-link">add movies</a>
                         </li>
 
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Movies</a>
+                        <li class="nav-item">
+                            <a href="admin" class="nav-link">movies</a>
+                        </li>
+ 
+                        <!--<li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="" role="button" aria-haspopup="true" aria-expanded="false">Movies</a>
                             <div class="dropdown-menu">
                                 <a class="dropdown-item" href="#">Action</a>
                                 <a class="dropdown-item" href="#">Another action</a>
@@ -54,11 +59,16 @@
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="#">Separated link</a>
                             </div>
-                        </li>
+                        </li>-->
 
                         <li class="nav-item">
-                            <a href="" class="nav-link">edit movies</a>
+                            <a href="customer/view" class="nav-link">customer details</a>
                         </li>
+                    </ul>
+                    @endauth
+                </div>
+            </div>
+                    
         </nav>
 
 
