@@ -30,6 +30,6 @@ class movieController extends Controller
         $new_movie->description =request()->description;     
         $new_movie->save();
 
-        return redirect('/movies');
+        return redirect('/admin');
      }
 }
