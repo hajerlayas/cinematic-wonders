@@ -16,12 +16,16 @@ class CreateCatagoriesTable extends Migration
         Schema::create('catagories', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('type');
-            $table->int('movies_id');
+            $table->bigInteger('movie_id')->unsigned();
 
+            
+            $table->timestamps();
+        });
+
+        Schema::table('catagories', function (Blueprint $table) {
             $table->foreign('movie_id')
             ->references('id')->on('movies')
             ->onDelete('cascade');
-            $table->timestamps();
         });
     }
 
