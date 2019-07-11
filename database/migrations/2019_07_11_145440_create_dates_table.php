@@ -16,8 +16,8 @@ class CreateDatesTable extends Migration
         Schema::create('dates', function (Blueprint $table) {
             //times table
             $table->bigIncrements('id');
-            $table->bigInteger('time_id');
-            $table->bigInteger('movie_id');
+            $table->bigInteger('time_id')->unsigned();
+            $table->bigInteger('movie_id')->unsigned();
             $table->time('start');
             $table->time('end');
 
