@@ -9,7 +9,7 @@ class customerController extends Controller
 {
     public function show(){
 
-        $userData = User::all();
+        $userData = Customer::all();
 
         return view('user.index')->with('user', $userData);
         
