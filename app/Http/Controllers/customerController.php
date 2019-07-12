@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use \App\User;
+use \App\Customer;
 
 class customerController extends Controller
 {
@@ -11,7 +11,7 @@ class customerController extends Controller
 
         $userData = Customer::all();
 
-        return view('user.index')->with('user', $userData);
+        return view('user.index')->with('customer', $userData);
         
     }
 }
