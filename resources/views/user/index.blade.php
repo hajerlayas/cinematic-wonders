@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layout.master')
 
 @section('content')
 
@@ -7,13 +7,19 @@
     <tr>
         <th>id</th>
         <th>name</th>
-        <th>email number</th>
+        <th>number</th>
+        <th>day</th>
+        <th>start</th>
+        <th>seates</th>
     </tr>
-    @foreach($user as $data)
+    @foreach($customer as $data)
         <tr>
             <td> {{$data->id}} </td>
             <td> {{$data->name}} </td>
-            <td> {{$data->email}} </td>
+            <td> {{$data->number}} </td>
+            <td> {{$data->day}} </td>
+            <td> {{$data->start}} </td>
+            <td> {{$data->seates}} </td>
         </tr>
     @endforeach
 
