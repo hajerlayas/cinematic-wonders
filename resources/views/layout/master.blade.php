@@ -28,7 +28,7 @@
                 <div id="myNav" class="collapse navbar-collapse">
                     <ul class="navbar-nav ">
                         <li class="nav-item">
-                            <a href="#" class="nav-link">Home</a>
+                            <a href="{{url('index')}}" class="nav-link">Home</a>
                         </li>
                         <li class="nav-item">
                             <a href="{{url('show_movies')}}" class="nav-link">Movies</a>
@@ -46,7 +46,7 @@
                         </li>
 
                         <li class="nav-item">
-                            <a href="" class="nav-link">Contact Us</a>
+                            <a href="{{url('contactus')}}" class="nav-link">Contact Us</a>
                         </li>
 
                         <!-- Authentication Links -->
