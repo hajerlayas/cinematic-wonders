@@ -2,34 +2,33 @@
 @section('content')
 
 <div class="container">
-
-
-<select name="" id="">
-@foreach($times as $time)
-    <option value="{{ $time->id }}">{{ $time->date . ' - ' . $time->start }}</option>
-@endforeach
-</select>
-<form action="{{ url('book') }}" method="post ">
-  <div class="form-group">
+<form action="{{ url('book') }}" enctype="multipart/form-data"  method="post " >
+<!--day input-->
+  <div class="form-group row">
+    <div class="col-10">
     <label for="date">day</label>
-    <input type="date" name="date"  class="form-control">
-  </div>
+    <select name="" id=""class="form-control">
+      <option value="" style="display:inline;">--selcte--</option>
+      @foreach($times as $time)
+      <option name="date" value="{{ $time->id }}">{{ $time->date }}</option>
+      @endforeach
+    </select>
+    </div>
+    <div class="col-2">
+      <button  >hi</button>
+    </div>
+</div>
+<!--times input-->
   <div class="form-group">
     <label for="time">times</label>
-    <input type="time" name="times"  class="form-control">
-  </div>
-  <div class="form-group">
-    <label for="seates">seates left</label>
-    <input type="number" name="seates"  class="form-control">
-  </div>
-
-
-
-
+      @foreach($times as $time)
+      <input type="radio" name="time" value="male"> {{}}
+      @endforeach
+</div>
 
 <!-- Button trigger modal -->
 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-  Launch demo modal
+  Book Ticktes
 </button>
 
 <!-- Modal -->
@@ -62,8 +61,8 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-<input type="submit">
+        <input type="submit" value="Save changes" class="btn btn-primary"></button>
+
 
       </div>
     </div>

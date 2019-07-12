@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use \App\movie;
 use \App\Time;
+use \App\Date;
 
 class view_moviesController extends Controller
 {
@@ -45,15 +46,28 @@ class view_moviesController extends Controller
         $movie = movie::all();
         return view('show_movies')->with('movie', $movie);  
     }
+    
 
     public function book_tickets ($id){
         $times = Time::where('movie_id',$id)->get();
+        // $dates = Date::where('movie_id',$id);
         return view('book_tickets')->with('times', $times);  
+
     }
 
-    public function book($movie_id)
-    {
+    public function store(){
+
+
+        $new_customr = new customer;
         
-    }
+        $new_customr->name      = request()->name;
+        $new_customr->phone     = request()->phone;
+        $new_customr->seates    = request()->seates;
+        $new_customr->date      = request()->date;  
+        $new_customr->time       = request()->time;   
+        $new_customr->save();
 
+        return redirect('/admin');
+
+}
 }
