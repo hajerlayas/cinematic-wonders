@@ -3,6 +3,7 @@
 
 <div class="container">
 <form action="{{ url('book') }}" enctype="multipart/form-data"  method="post " >
+@csrf
 <!--day input-->
   <div class="form-group row">
     <div class="col-10">
