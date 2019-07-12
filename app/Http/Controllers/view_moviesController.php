@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use \App\movie;
 use \App\Time;
 use \App\Date;
+use \App\Message;
 
 class view_moviesController extends Controller
 {
@@ -46,7 +47,7 @@ class view_moviesController extends Controller
         $movie = movie::all();
         return view('show_movies')->with('movie', $movie);  
     }
-    
+
 
     public function book_tickets ($id){
         $times = Time::where('movie_id',$id)->get();
@@ -70,4 +71,16 @@ class view_moviesController extends Controller
         return redirect('/admin');
 
 }
+
+    public function contactus(){
+        $new_message = new message;
+        
+        $new_message->name      = request()->name;
+        $new_message->email     = request()->email;
+        $new_message->message    = request()->message;
+        $new_message->save();
+
+        return redirect('/contactus');
+
+    }
 }
