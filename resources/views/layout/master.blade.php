@@ -26,6 +26,7 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div id="myNav" class="collapse navbar-collapse">
+                @guest
                     <ul class="navbar-nav ">
                         <li class="nav-item">
                             <a href="{{url('index')}}" class="nav-link">Home</a>
@@ -50,13 +51,36 @@
                         </li>
 
                         <!-- Authentication Links -->
-                        @guest
+                        
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('login') }}">{{ __('Admin Login') }}</a>
                             </li>
-                        @endguest
+
+                            <form class="form-inline ml-auto">
+                                <div class="md-form my-0 ">
+                                    <input class="  form-control" type="text" placeholder="Search" aria-label="Search">
+                                </div>
+                            </form>
+                    </ul>
+                </div>
+                @endguest
 
                         @auth
+                        <ul class="navbar-nav ">
+                            <li class="nav-item">
+                                <a href="{{ url ('home') }}" class="nav-link">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{ url('movies/create') }}" class="nav-link">add movies</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a href="{{url ('admin') }}" class="nav-link">movies</a>
+                            </li>
+
+                            <li class="nav-item">
+                            <a href="{{ url('customer/view') }}" class="nav-link">customer details</a>
+                            </li>
 
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
@@ -75,17 +99,9 @@
                                     </form>
                                 </div>
                             </li>
+                        </ul>
                         @endauth
-                        
-                    </ul>
 
-                    <form class="form-inline ml-auto">
-                    <div class="md-form my-0 ">
-                        <input class="  form-control" type="text" placeholder="Search" aria-label="Search">
-                    </div>
-                    </form>
-                </div>
-                
         </nav>        
         <div class="container">               
             @yield('content')
