@@ -2,14 +2,7 @@
 @section('content')
 
 <div class="container">
-
-
-<select name="" id="">
-@foreach($times as $time)
-    <option value="{{ $time->id }}">{{ $time->date }}</option>
-@endforeach
-</select>
-<form action="{{ url('book') }}" method="post " >
+<form action="{{ url('book') }}" enctype="multipart/form-data"  method="post " >
 <!--day input-->
   <div class="form-group row">
     <div class="col-10">
@@ -17,7 +10,7 @@
     <select name="" id=""class="form-control">
       <option value="" style="display:inline;">--selcte--</option>
       @foreach($times as $time)
-      <option value="{{ $time->id }}">{{ $time->date }}</option>
+      <option name="date" value="{{ $time->id }}">{{ $time->date }}</option>
       @endforeach
     </select>
     </div>
@@ -29,7 +22,7 @@
   <div class="form-group">
     <label for="time">times</label>
       @foreach($times as $time)
-      <input type="radio" name="gender" value="male"> {{}}
+      <input type="radio" name="time" value="male"> {{}}
       @endforeach
 </div>
 
@@ -68,8 +61,8 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-<input type="submit">
+        <input type="submit" value="Save changes" class="btn btn-primary"></button>
+
 
       </div>
     </div>
