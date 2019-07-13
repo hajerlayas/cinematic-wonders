@@ -73,14 +73,13 @@ class view_moviesController extends Controller
 }
 
     public function contactus(){
-        $new_message = new message;
-        
-        $new_message->name      = request()->name;
-        $new_message->email     = request()->email;
-        $new_message->message    = request()->message;
-        $new_message->save();
+       // $new_message = new message;
+        return view('contactus');
 
-        return redirect('/contactus');
-
+    }
+    public function index1(){
+        $movie = movie::all();
+        // dd($movie);
+        return view('index')->with('movies', $movie);
     }
 }
