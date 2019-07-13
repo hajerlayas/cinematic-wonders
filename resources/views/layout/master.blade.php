@@ -12,7 +12,13 @@
             }
             footer{
                 background-color: #42a5f5 ; 
-            }  
+                position: fixed;
+                bottom: 0;
+                width: 100vw;
+            } 
+            body{
+                background-image: linear-gradient(	#42a5f5, rgb(204, 242, 255));
+            } 
         </style>
     </head>
     <body>
@@ -31,9 +37,6 @@
                         <li class="nav-item">
                             <a href="{{url('index')}}" class="nav-link">Home</a>
                         </li>
-                        <li class="nav-item">
-                            <a href="{{url('show_movies')}}" class="nav-link">Movies</a>
-                        </li>
 
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Movies</a>
@@ -42,7 +45,7 @@
                                 <a class="dropdown-item" href="#">Another action</a>
                                 <a class="dropdown-item" href="#">Something else here</a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#">Separated link</a>
+                                <a class="dropdown-item" href="{{url('show_movies')}}">Movies</a>
                             </div>
                         </li>
 
@@ -58,7 +61,7 @@
 
                             <form class="form-inline ml-auto">
                                 <div class="md-form my-0 ">
-                                    <input class="  form-control" type="text" placeholder="Search" aria-label="Search">
+                                    <input class="form-control"  type="text" placeholder="Search" aria-label="Search">
                                 </div>
                             </form>
                     </ul>
@@ -103,10 +106,10 @@
                         @endauth
 
         </nav>        
-        <div class="container">               
+                  
             @yield('content')
             
-        </div> 
+       
     </body>
     <footer>
         <p>footer</p>
