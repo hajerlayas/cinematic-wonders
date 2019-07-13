@@ -6,7 +6,7 @@
         <div class="col-xl-3 col-lg-6">
             <div class="card mb-4">
 
-                <img src=" {{ url('storage/'.$movie->img) }}  " alt="" class="card-img-top">
+                <img src=" {{ url('storage/'.$movie->img) }}  " width="300" height="100" alt="" class="card-img-top">
 
                 <div class="card-body">
                 <h3 class="card-title">{{ $movie->name }}</h3>
