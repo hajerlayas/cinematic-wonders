@@ -8,20 +8,27 @@
   <div class="form-group row">
     <div class="col-10">
     <label for="date">day</label>
-    <select name="" id=""class="form-control">
+    <select name="day" id=""class="form-control">
       <option value="" style="display:inline;">--selcte--</option>
       @foreach($times as $time)
       <option name="day" value="{{ $time->date }}">{{ $time->date }}</option>
       @endforeach
     </select>
     </div>
+  </div>
+  
 <!--times input-->
-  <div class="form-group">
-    <label for="time">times</label>
-      @foreach($times as $time)
-      <input type="radio" name="start" value="{{ $time->start }}"> {{ $time->start }}
-      @endforeach
-</div>
+  <div class="form-group row">
+    <div class="col-10">
+      <label for="time">times</label>
+      <select name="start" id=""class="form-control">
+        <option value="" style="display:inline;">--selcte--</option>
+        @foreach($times as $time)
+        <option name="start" value="{{ $time->start }}"> {{ $time->start }} </option>
+        @endforeach
+      </select>
+    </div>
+  </div>
 
 <!-- Button trigger modal -->
 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
