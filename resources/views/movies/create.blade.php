@@ -29,8 +29,23 @@
             <input type="time" name="start" class="form-control new-filed">
 
             <label class="new-filed"> Ends At: </label>
-            <input type="time" name="end" class="form-control new-filed"> -->
+            <input type="time" name="end" class="form-control new-filed">
+            
+            <label> type: </label>
+            <select name="type" id="type" class="form-control">
+                <option value="">--Select--</option>
+                <option value="Action">Action</option>
+                <option value="Horror"> Horror</option>
+                <option value="Comedy">Comedy</option>
+            </select><br> -->
 
+            <label> type: </label>
+            <select name="type" id="type" class="form-control">
+                <option value="">--Select--</option>
+                <option value="Action">Action</option>
+                <option value="Horror"> Horror</option>
+                <option value="Comedy">Comedy</option>
+            </select><br>
             
             <label class="new-filed"> description: </label>
             <textarea class="new-filed" name="description" id="" cols="30" rows="8"></textarea><br>
