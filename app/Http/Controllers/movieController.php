@@ -27,7 +27,8 @@ class movieController extends Controller
         $new_movie->status      = request()->status;
         $new_movie->name        = request()->name;
         $new_movie->img         = $image_path;;
-        $new_movie->description =request()->description;     
+        $new_movie->description =request()->description; 
+        $new_movie->type      = request()->type;   
         $new_movie->save();
 
         return redirect('/admin');
