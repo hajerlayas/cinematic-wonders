@@ -35,7 +35,7 @@ Route::middleware('auth')->group(function() {
     Route::get('movies/create', 'movieController@create');
     Route::get('movies/{movie_id}/times/create', 'MovieTimeController@create');
     Route::get('customer/view', 'customerController@show');
-
+    Route::get('admin/message', 'MessagesController@show');
 });
 
 
