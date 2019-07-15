@@ -17,7 +17,7 @@
                 width: 100vw;
             } 
             body{
-                background-image: linear-gradient(	#42a5f5, rgb(204, 242, 255));
+                background-image: linear-gradient( rgb(204, 242, 255)	, #64b5f6);
             } 
         </style>
     </head>
