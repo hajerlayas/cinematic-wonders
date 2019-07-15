@@ -7,6 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 class Time extends Model
 {
     public function movies(){
-        return $this->belongsToMany('App\Movies');
+        return $this->belongsTo('App\Movies');
     }
 }
