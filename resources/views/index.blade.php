@@ -10,6 +10,7 @@
             display: flex;
             flex-direction: row;
             flex-wrap: nowrap !important;
+            margin:10px;
         }
         {
             outline :4px solid #42a5f5;
@@ -22,6 +23,7 @@
         .checked {
         color: orange;
         }
+        
         
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -55,16 +57,16 @@
             </div>
 <!--today's movies-->
     <div class="row row1">
-        <div class="col-6 ">
+        <div class="col ">
             <h2>today's movies</h2>
             <div class="row">
                 <div class="col even">
                     @foreach($todays as $today)
                     
                             @if($loop->odd)
-                                <div class="col-xl-9 col-lg-6">
+                                <div class="col-xl-6 col-lg-6 mx-auto">
                                     <div class="card mb-4">
-                                        <img src=" {{ url('storage/'.$today->img) }}  " alt="" class="card-img-top" width="300" height="100">
+                                        <img src=" {{ url('storage/'.$today->img) }}  " alt="" class="card-img-top" width="300" height="200">
                                         <div class="card-body">
                                             <h3 class="card-title">{{ $today->name }}</h3>
                                             <p class="card-text text-muted">{{ $today->type }}</p>
@@ -81,9 +83,9 @@
                 <div class=" col odd">
                     @foreach($todays as $todays)
                              @if($loop->even)
-                                <div class="col-xl-9 col-lg-6">
+                                <div class="col-xl-6 col-lg-6 mx-auto">
                                     <div class="card mb-4">
-                                        <img src=" {{ url('storage/'.$today->img) }}  " alt="" class="card-img-top" width="300" height="100">
+                                        <img src=" {{ url('storage/'.$today->img) }}  " alt="" class="card-img-top" width="300" height="200">
                                         <div class="card-body">
                                             <h3 class="card-title">{{ $today->name }}</h3>
                                             <p class="card-text text-muted">{{ $today->type }}</p>
@@ -98,19 +100,18 @@
                 </div>
             </div>
         </div>
-        <div class="col nf">
         <!--coming soon-->
-            <div class="row nf row2"> 
+            <div class="row row2"> 
                 @foreach($movies as $movie)
-                  <div class="col-xl-5 col-lg-6">
+                  <div class="col-xl-3 col-lg-6">
                     <div class="card mb-4">
-                                    <img src=" {{ url('storage/'.$movie->img) }}  " width="300" height="100" alt="" class="card-img-top">
+                                    <img src=" {{ url('storage/'.$movie->img) }}  " width="300" height="150" alt="" class="card-img-top">
                                 <div class="card-body">
                                 <h3 class="card-title">{{ $movie->name }}</h3>
                                     <p class="card-text text-muted">{{ $movie->type }}</p>
                                 </div>
                             </div>
-                        </div>
+                    </div>
                     @endforeach
 
                    
@@ -124,7 +125,7 @@
             <span class="fa fa-star"></span>
 
          </div>
-        </div>  
+          
     </div>
 
 @endsection
