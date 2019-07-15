@@ -19,6 +19,7 @@ class CreateMoviesTable extends Migration
             $table->text('description')->nullable();
             $table->string('img');
             $table->string('status');
+            $table->string('type');
             
             $table->timestamps();
         });
