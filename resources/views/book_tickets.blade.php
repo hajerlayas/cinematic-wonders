@@ -2,7 +2,7 @@
 @section('content')
 
 <div class="container">
-<form action="{{ url('book') }}" enctype="multipart/form-data"  method="post " >
+<form action="{{ url('book') }}" enctype="multipart/form-data"  method="post" >
 @csrf
 <!--day input-->
   <div class="form-group row">
@@ -11,19 +11,15 @@
     <select name="" id=""class="form-control">
       <option value="" style="display:inline;">--selcte--</option>
       @foreach($times as $time)
-      <option name="date" value="{{ $time->id }}">{{ $time->date }}</option>
+      <option name="day" value="{{ $time->date }}">{{ $time->date }}</option>
       @endforeach
     </select>
     </div>
-    <div class="col-2">
-      <button  >hi</button>
-    </div>
-</div>
 <!--times input-->
   <div class="form-group">
     <label for="time">times</label>
       @foreach($times as $time)
-      <input type="radio" name="time" value="male"> {{}}
+      <input type="radio" name="start" value="{{ $time->start }}"> {{ $time->start }}
       @endforeach
 </div>
 
@@ -51,7 +47,7 @@
   </div>
   <div class="form-group">
     <label for="time">phone number</label>
-    <input type="number" name="phone"  class="form-control">
+    <input type="text" name="number"  class="form-control">
   </div>
   <div class="form-group">
     <label for="seates">seates</label>
