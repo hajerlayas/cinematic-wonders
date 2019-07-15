@@ -88,7 +88,7 @@ class view_moviesController extends Controller
     }
     public function index1(){
         //coming soon 
-        $movies = movie::all();
+        $movies = movie::find('status','coming soon');
         // showing this week 
         $week_movies = movie::whereHas('times', function($q) {
             $today = today();
@@ -111,9 +111,11 @@ class view_moviesController extends Controller
         
     }
 
-    public function type ($type){
-        $movies = Movie::find($type);
+    public function type ($name){
+        $movies = Movie::where('type',$name)->get();
+        dd($movies);
         return view('type_page')->with('movies', $movies);
+        
     }
     
 }
