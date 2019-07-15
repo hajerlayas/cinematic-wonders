@@ -8,7 +8,7 @@ class Movie extends Model
 {
     public function times()
     {
-        return $this->belongsToMany('App\Time');
+        return $this->hasMany('App\Time');
     }
 
 }
