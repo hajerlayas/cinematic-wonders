@@ -19,7 +19,7 @@
         <h3>send us a message</h3>
     </div>
     <div class="card-body">
-        <form action="" enctype="multipart/form-data"  method="POST" >
+        <form action="{{ url('message') }}" enctype="multipart/form-data"  method="POST" >
             @csrf
 
             <label class="coming-soon-field"> Name: </label>
