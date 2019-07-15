@@ -11,4 +11,9 @@ class Movie extends Model
         return $this->hasMany('App\Time');
     }
 
+    public function categories()
+    {
+        return $this->hasMany('App\Categories');
+    }
+
 }
