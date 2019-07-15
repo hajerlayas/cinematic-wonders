@@ -18,6 +18,7 @@
             } 
             body{
                 background-image: linear-gradient( rgb(204, 242, 255)	, #64b5f6);
+                
             } 
         </style>
     </head>
@@ -41,12 +42,9 @@
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Movies</a>
                             <div class="dropdown-menu">
-                                {{-- @foreach(\App\Category::all() as $category)
-                                <a class="dropdown-item" href="{{ url('type/' . $category->id ) }}">{{ $category->name }}</a>
-                                @endforeach --}}
-                                <a class="dropdown-item" href="'type/{type}'">Another action</a>
-                                <a class="dropdown-item" href="#">Something else here</a>
-                                <div class="dropdown-divider"></div>
+                                 @foreach(\App\Categories::all() as $category)
+                                <a class="dropdown-item" href="{{ url('type_page/' . $category->name ) }}">{{ $category->name }}</a>
+                                @endforeach
                                 <a class="dropdown-item" href="{{url('show_movies')}}">Movies</a>
                             </div>
                         </li>
