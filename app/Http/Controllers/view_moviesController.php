@@ -5,8 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use \App\movie;
 use \App\Time;
-use \App\Date;
 use \App\Message;
+use \App\Customer;
+use \App\Review;
 
 class view_moviesController extends Controller
 {
@@ -51,7 +52,6 @@ class view_moviesController extends Controller
 
     public function book_tickets ($id){
         $times = Time::where('movie_id',$id)->get();
-        // $dates = Date::where('movie_id',$id);
         return view('book_tickets')->with('times', $times);  
 
     }
@@ -62,24 +62,58 @@ class view_moviesController extends Controller
         $new_customr = new customer;
         
         $new_customr->name      = request()->name;
-        $new_customr->phone     = request()->phone;
+        $new_customr->number     = request()->number;
         $new_customr->seates    = request()->seates;
-        $new_customr->date      = request()->date;  
-        $new_customr->time       = request()->time;   
+        $new_customr->day      = request()->day;  
+        $new_customr->start       = request()->start;   
         $new_customr->save();
 
-        return redirect('/admin');
+        return redirect('index');
 
 }
 
     public function contactus(){
-       // $new_message = new message;
+        $new_message = new message;
+        
+        $new_message->name      = request()->name;
+        $new_message->email     = request()->email;
+        $new_message->message    = request()->message;
+        $new_message->save();
+        return redirect('contactus');
+
+    }
+    public function message(){
         return view('contactus');
 
     }
     public function index1(){
-        $movie = movie::all();
-        // dd($movie);
-        return view('index')->with('movies', $movie);
+        //coming soon 
+        $movies = movie::all();
+        // showing this week 
+        $week_movies = movie::whereHas('times', function($q) {
+            $today = today();
+            $after_one_week = today()->addWeek(1);
+            $q->whereBetween('date', [$today->toDateString(), $after_one_week->toDateString()]);
+        })->get();
+         //this day
+        $todays =movie::whereHas('times', function($q) {
+            $today = today();
+            $q->where('date', [$today->toDateString()]);
+        })->get();
+
+         //dd($todays);
+
+
+        return view('index')->with('week_movies', $week_movies)->with('todays',$todays)->with('movies', $movies);
     }
+
+    public function rate(){
+        
+    }
+
+    public function type ($type){
+        $movies = Movie::find($type);
+        return view('type_page')->with('movies', $movies);
+    }
+    
 }
