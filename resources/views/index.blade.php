@@ -7,6 +7,9 @@
         .row2{
             height:300px;
             overflow-x: scroll;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap !important;
         }
         {
             outline :4px solid #42a5f5;
@@ -16,9 +19,15 @@
             color:black;
             width:950px;
         }
+        .checked {
+        color: orange;
+        }
+        
     </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 @section('content')
+<!--this week -->
 <div class="row  row3  mx-auto">
                 <h2>showing this week</h2>
                 <div id="slideshow" class="carousel slide mx-auto" data-ride="carousel">
@@ -28,9 +37,9 @@
                         <li data-target="#slideshow" data-slide-to="2"></li>
                     </ol>
                     <div class="carousel-inner">
-                         @foreach($movies as $movie)
+                         @foreach($week_movies as $week_movie)
                         <div class="carousel-item @if ($loop->first) active @endif">
-                        <img src=" {{ url('storage/'.$movie->img) }}  " alt="" width=" 950px" height="400px ">   
+                        <img src=" {{ url('storage/'.$week_movie->img) }}  " alt="" width=" 950px" height="400px">   
                         </div>
                          @endforeach 
                     </div>
@@ -50,18 +59,18 @@
             <h2>today's movies</h2>
             <div class="row">
                 <div class="col even">
-                    @foreach($movies as $movie)
+                    @foreach($todays as $today)
                     
                             @if($loop->odd)
                                 <div class="col-xl-9 col-lg-6">
                                     <div class="card mb-4">
-                                        <img src=" {{ url('storage/'.$movie->img) }}  " alt="" class="card-img-top" width="300" height="100">
+                                        <img src=" {{ url('storage/'.$today->img) }}  " alt="" class="card-img-top" width="300" height="100">
                                         <div class="card-body">
-                                            <h3 class="card-title">{{ $movie->name }}</h3>
-                                            <p class="card-text text-muted">{{ $movie->type }}</p>
+                                            <h3 class="card-title">{{ $today->name }}</h3>
+                                            <p class="card-text text-muted">{{ $today->type }}</p>
                                         </div>
                                         <div class="card-footer">
-                                            <a class="btn btn-primary" href="{{ url('movies_page/' . $movie->id )}}" role="button">show more</a>
+                                            <a class="btn btn-primary" href="{{ url('movies_page/' . $today->id )}}" role="button">show more</a>
                                         </div>
                                     </div>
                                 </div>
@@ -70,17 +79,17 @@
                 </div>
                     
                 <div class=" col odd">
-                    @foreach($movies as $movie)
+                    @foreach($todays as $todays)
                              @if($loop->even)
                                 <div class="col-xl-9 col-lg-6">
                                     <div class="card mb-4">
-                                        <img src=" {{ url('storage/'.$movie->img) }}  " alt="" class="card-img-top" width="300" height="100">
+                                        <img src=" {{ url('storage/'.$today->img) }}  " alt="" class="card-img-top" width="300" height="100">
                                         <div class="card-body">
-                                            <h3 class="card-title">{{ $movie->name }}</h3>
-                                            <p class="card-text text-muted">{{ $movie->type }}</p>
+                                            <h3 class="card-title">{{ $today->name }}</h3>
+                                            <p class="card-text text-muted">{{ $today->type }}</p>
                                         </div>
                                         <div class="card-footer">
-                                            <a class="btn btn-primary" href="{{ url('movies_page/' . $movie->id )}}" role="button">show more</a>
+                                            <a class="btn btn-primary" href="{{ url('movies_page/' . $today->id )}}" role="button">show more</a>
                                         </div>
                                     </div>
                                 </div>
@@ -100,14 +109,21 @@
                                 <h3 class="card-title">{{ $movie->name }}</h3>
                                     <p class="card-text text-muted">{{ $movie->type }}</p>
                                 </div>
-
-                                <div class="card-footer">
-                                <a class="btn btn-primary" href="{{ url('movies_page/' . $movie->id )}}" role="button">show more</a>
-                                </div>
                             </div>
                         </div>
                     @endforeach
+
+                   
         </div>
+         <div class="mt-5">
+         <h2> rate our website </h2>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star"></span>
+            <span class="fa fa-star"></span>
+
+         </div>
         </div>  
     </div>
 
