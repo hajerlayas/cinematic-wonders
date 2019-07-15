@@ -17,6 +17,8 @@ class CreateTimesTable extends Migration
             $table->bigIncrements('id');
             $table->date('date');
             $table->bigInteger('movie_id')->unsigned();
+            $table->time('start');
+            $table->time('end');
             
             $table->timestamps();
         });
