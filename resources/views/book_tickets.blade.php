@@ -1,7 +1,17 @@
 @extends('layout.master')
+<head>
+<style>
+.container{
+  padding: 100px;
+  margin: 50px;
+}
+footer{
+     position: fixed !important;
+            }
+</style></head>
 @section('content')
 
-<div class="container">
+<div class="container  mx-auto">
 <form action="{{ url('book') }}" enctype="multipart/form-data"  method="post" >
 @csrf
 <!--day input-->
