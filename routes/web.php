@@ -15,9 +15,9 @@ Route::get('/', function () {
     return view('layout.master');
 });
 
-Route::get('movies_page/{id}','view_moviesController@index');
+Route::get('movies_page/{id}','view_moviesController@index')->name('showMovie');
 Route::get('show_movies','view_moviesController@movies');
-Route::get('index','view_moviesController@index1');
+Route::get('index','view_moviesController@index1')->name('index');
 Route::get('contactus','view_moviesController@message');
 Route::get('book_tickets/{id}','view_moviesController@book_tickets');
 Route::get('type_page/{name}','view_moviesController@type');
@@ -25,6 +25,7 @@ Route::post('message','view_moviesController@contactus');
 Route::post('book','view_moviesController@store');
 Route::post('movies/{movie_id}/times', 'MovieTimeController@store');
 Route::post('movies'      , 'movieController@store' );
+Route::post('/search'      , 'movieController@search' )->name('movie.search');
 
 
 //admin routes
