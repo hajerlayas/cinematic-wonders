@@ -1,37 +1,40 @@
 @extends('layout.master')
-<head>
+@section('dstyle')
     <style>
         .row1{
-            height:600px;
+            
         }
         .row2{
             height:300px;
-            overflow-x: scroll;
             display: flex;
             flex-direction: row;
             flex-wrap: nowrap !important;
             margin:10px;
-        }
-        {
-            outline :4px solid #42a5f5;
         }
         .row3{
             height:500px;
             color:black;
             width:950px;
         }
-        .checked {
-        color: orange;
+        #h2{
+            font-family: "Comic Sans MS", cursive, sans-serif;
+            color: white;
         }
-        
-        
+        #h21{
+            font-family: "Comic Sans MS", cursive, sans-serif;
+            color: white;
+            margin-left: 200px;
+        }
+  
+
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-</head>
+@endsection
 @section('content')
+<div class="container-fluid">
 <!--this week -->
 <div class="row  row3  mx-auto">
-                <h2>showing this week</h2>
+                <h2 id="h2">Showing This Week </h2>
                 <div id="slideshow" class="carousel slide mx-auto" data-ride="carousel">
                     <ol class="carousel-indicators">
                         <li data-target="#slideshow" data-slide-to="0" class="active"></li>
@@ -54,11 +57,11 @@
                         <span class="sr-only">Next</span>
                     </a>
                 </div>
-            </div>
+</div>
 <!--today's movies-->
-    <div class="row row1">
+<div class="row row1">
         <div class="col ">
-            <h2>today's movies</h2>
+            <h2 id="h21">Today's Movies</h2>
             <div class="row">
                 <div class="col even">
                     @foreach($todays as $today)
@@ -81,7 +84,7 @@
                 </div>
                     
                 <div class=" col odd">
-                    @foreach($todays as $todays)
+                    @foreach($todays as $today)
                              @if($loop->even)
                                 <div class="col-xl-6 col-lg-6 mx-auto">
                                     <div class="card mb-4">
@@ -100,32 +103,26 @@
                 </div>
             </div>
         </div>
+</div>
         <!--coming soon-->
+        <h2 id="h2"> Coming Soon </h2>
             <div class="row row2"> 
+                
                 @foreach($movies as $movie)
                   <div class="col-xl-3 col-lg-6">
-                    <div class="card mb-4">
-                                    <img src=" {{ url('storage/'.$movie->img) }}  " width="300" height="150" alt="" class="card-img-top">
+                        <div class="card mb-4">
+                                 <img src=" {{ url('storage/'.$movie->img) }}  " width="300" height="150" alt="" class="card-img-top"> 
                                 <div class="card-body">
-                                <h3 class="card-title">{{ $movie->name }}</h3>
-                                    <p class="card-text text-muted">{{ $movie->type }}</p>
+                                     <h3 class="card-title">{{ $movie->name }}</h3>
+                                     <p class="card-text text-muted">{{ $movie->type }}</p> 
                                 </div>
-                            </div>
+                        </div>
                     </div>
-                    @endforeach
-
-                   
-        </div>
-         <div class="mt-5">
-         <h2> rate our website </h2>
-            <span class="fa fa-star checked"></span>
-            <span class="fa fa-star checked"></span>
-            <span class="fa fa-star checked"></span>
-            <span class="fa fa-star"></span>
-            <span class="fa fa-star"></span>
-
-         </div>
-          
-    </div>
+                @endforeach   
+       
+           </div>
+        
+           </div>  
+    
 
 @endsection
