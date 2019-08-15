@@ -6,20 +6,64 @@
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        
+        <script>  
+ $(document).ready(function(){ 
+      $('#search').keyup(function(){  
+           var query = $(this).val();  
+           if(query != '')  
+           {  
+               var _token = $('input[name="_token"]').val();
+                $.ajax({  
+                     url:"{{ route('movie.search')}}",  
+                     method:"POST",  
+                     data:{query:query, _token:_token},
+                     success:function(data)  
+                     {
+                          $('#searchList').fadeIn();  
+                          $('#searchList').html(data);  
+                     }  
+                });  
+           }  
+      });  
+      $(document).on('click', 'li', function(){  
+           $('#search').val($(this).text());  
+           $('#searchList').fadeOut(); 
+
+      });  
+ });  
+ </script>
+        
         <style>
             .deep-purple{
                 background-color: #42a5f5 !important;
-            }
-            footer{
-                background-color: #42a5f5 ; 
-                position: fixed;
-                bottom: 0;
-                width: 100vw;
             } 
             body{
-                background-image: linear-gradient( rgb(204, 242, 255)	, #64b5f6);
+               
+            background-image: url('/storage/image/cinema23.jpg');
+            background-repeat: no-repeat ;
+            background-size: cover ;
+            position: relative;
                 
             } 
+            footer{
+                background-color: #42a5f5 ; 
+                bottom: 0 ;
+                width: 100%;
+                height: 5%;
+               
+            }
+            .box{
+                width:600px;
+                margin:0 auto;
+            }
+            #searchList{
+                z-index:1000;
+                position: absolute;
+            }
         </style>
     </head>
     <body>
@@ -34,6 +78,7 @@
                 </button>
                 <div id="myNav" class="collapse navbar-collapse">
                 @guest
+                <div class="container-fluid">
                     <ul class="navbar-nav ">
                         <li class="nav-item">
                             <a href="{{url('index')}}" class="nav-link">Home</a>
@@ -59,26 +104,34 @@
                                 <a class="nav-link" href="{{ route('login') }}">{{ __('Admin Login') }}</a>
                             </li>
 
-                            <form class="form-inline ml-auto">
+                            <!--<form class="form-inline ml-auto" method="post">
+                                {{csrf_field() }}
                                 <div class="md-form my-0 ">
                                     <input class="form-control"  type="text" placeholder="Search" aria-label="Search">
                                 </div>
-                            </form>
+                            </form>-->
+
+                            <div class="form-group" >
+                                <input type="text" name="search" id="search" class="form-control" placeholder="search movie" />  
+                            
+                                <div  id="searchList" ></div>
+                            </div>
+                            {{ csrf_field() }}
+
+ 
+
                     </ul>
+                </div>
                 </div>
                 @endguest
 
                         @auth
                         <ul class="navbar-nav ">
                             <li class="nav-item">
-                                <a href="{{ url ('home') }}" class="nav-link">Home</a>
+                                <a href="{{ url ('home') }}" class="nav-link">movies</a>
                             </li>
                             <li class="nav-item">
                                 <a href="{{ url('movies/create') }}" class="nav-link">add movies</a>
-                            </li>
-
-                            <li class="nav-item">
-                                <a href="{{url ('admin') }}" class="nav-link">movies</a>
                             </li>
 
                             <li class="nav-item">
@@ -110,12 +163,14 @@
                         @endauth
 
         </nav>        
+            <div class="container-fluid">     
+                @yield('content')
+            </div> 
                   
-            @yield('content')
-            
        
     </body>
     <footer>
         <p>footer</p>
     </footer>
+    
 </html>
