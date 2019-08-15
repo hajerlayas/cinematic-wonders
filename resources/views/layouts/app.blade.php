@@ -18,6 +18,12 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+<style>
+.navbarDropdown{
+    float: right;
+}
+</style>
+
 </head>
 <body>
     <div id="app">
