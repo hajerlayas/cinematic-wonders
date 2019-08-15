@@ -1,10 +1,16 @@
-@extends('layouts.app')
+@extends('layout.master')
+<head>
+<style>
+footer{
+     position: fixed !important;
+            }
+</style></head>
 
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card">
+            <div class="card m-5 mx-auto">
                 <div class="card-header">{{ __('Login') }}</div>
 
                 <div class="card-body">
