@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use \App\Movie;
 use \App\Time;
+use DB;
 
 class movieController extends Controller
 {
@@ -33,4 +34,22 @@ class movieController extends Controller
 
         return redirect('/admin');
      }
+
+    function search(Request $request){
+        if($request->get('query')){
+            $query = $request->get('query');
+            $data = DB::table('movies')->where('name', 'LIKE', '%'.$query.'%')->get();
+            
+            $output = '<ul class="dropdown-menu" style="display:block; position:relative">';
+                
+                foreach ($data as $row){
+                    $tmp = route('showMovie',['id' => $row->id]);
+                    $s = Movie::where('id', $row->id)->get();
+                    $output .= '<li><a href='.$tmp.'>'.$row->name.'</a></li>'; 
+                }
+            
+            $output .= '</ul>';
+            echo $output;
+        }
+    }
 }
