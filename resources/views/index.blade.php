@@ -1,5 +1,4 @@
 @extends('layout.master')
-@section('dstyle')
     <style>
         .row1{
             
@@ -16,7 +15,7 @@
             color:black;
             width:950px;
         }
-        #h2{
+        #htwo{
             font-family: "Comic Sans MS", cursive, sans-serif;
             color: white;
         }
@@ -29,12 +28,11 @@
 
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-@endsection
 @section('content')
 <div class="container-fluid">
 <!--this week -->
 <div class="row  row3  mx-auto">
-                <h2 id="h2">Showing This Week </h2>
+                <h2 id="htwo">Showing This Week </h2>
                 <div id="slideshow" class="carousel slide mx-auto" data-ride="carousel">
                     <ol class="carousel-indicators">
                         <li data-target="#slideshow" data-slide-to="0" class="active"></li>
