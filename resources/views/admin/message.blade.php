@@ -1,4 +1,13 @@
 @extends('layout.master')
+<head>
+<style>
+.table{color : white;}
+footer{ position: absolute;}
+body{
+    width: 100%;
+                height: 100%;
+}
+</style></head>
 
 @section('content')
 
