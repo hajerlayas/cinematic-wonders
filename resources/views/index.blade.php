@@ -15,7 +15,7 @@
             color:black;
             width:950px;
         }
-        #htwo{
+        #h2{
             font-family: "Comic Sans MS", cursive, sans-serif;
             color: white;
         }
@@ -32,7 +32,7 @@
 <div class="container-fluid">
 <!--this week -->
 <div class="row  row3  mx-auto">
-                <h2 id="htwo">Showing This Week </h2>
+                <h2 id="h2">Showing This Week </h2>
                 <div id="slideshow" class="carousel slide mx-auto" data-ride="carousel">
                     <ol class="carousel-indicators">
                         <li data-target="#slideshow" data-slide-to="0" class="active"></li>
