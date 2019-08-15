@@ -10,6 +10,10 @@
             width:750;
             height:500;
         }
+footer{
+     position: fixed !important;
+            }
+
     </style>
 </head>
 @section('content')
