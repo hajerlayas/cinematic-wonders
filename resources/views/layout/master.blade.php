@@ -53,7 +53,10 @@
                 background-color: #42a5f5 ; 
                 bottom: 0 ;
                 width: 100%;
-                height: 5%;
+                text-align:center;
+                padding:20px;
+                font-size:15px;
+                font-family:"Lucida Sans Unicode", Impact, Arial, "Comic Sans MS", Georgia;
                
             }
             .box{
@@ -64,10 +67,13 @@
                 z-index:1000;
                 position: absolute;
             }
+            .center{
+                text-align:center;
+            }
         </style>
     </head>
     <body>
-        <nav class="navbar navbar-expand-lg navbar-light deep-purple">
+        <nav class="navbar navbar-expand-lg navbar-light deep-purple center">
                 <div class="navbar-brand">
                     <img src="" alt="" height="">
                     <span>Cinematic Wonders</span>
@@ -78,8 +84,8 @@
                 </button>
                 <div id="myNav" class="collapse navbar-collapse">
                 @guest
-                <div class="container-fluid">
-                    <ul class="navbar-nav ">
+                <div class="container-fluid ">
+                    <ul class="navbar-nav  "style="width: 100%;"> 
                         <li class="nav-item">
                             <a href="{{url('index')}}" class="nav-link">Home</a>
                         </li>
@@ -100,9 +106,8 @@
 
                         <!-- Authentication Links -->
                         
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('login') }}">{{ __('Admin Login') }}</a>
-                            </li>
+                        
+
 
                             <!--<form class="form-inline ml-auto" method="post">
                                 {{csrf_field() }}
@@ -111,12 +116,18 @@
                                 </div>
                             </form>-->
 
-                            <div class="form-group" >
-                                <input type="text" name="search" id="search" class="form-control" placeholder="search movie" />  
-                            
-                                <div  id="searchList" ></div>
-                            </div>
+                            <form class="form-inline ml-auto" >
+                                <div class="md-form my-0">
+                                    <input type="text" name="search" id="search" class="form-control" placeholder="search movie" />  
+                                
+                                    <div  id="searchList" ></div>
+                                </div>
+                            </form>
                             {{ csrf_field() }}
+
+                            <li class="nav-item" style="margin-left:20px;">
+                                <a href="{{ route('login') }}"><img src="../storage/image/adminIcon2.png" width="50px" height="50px"></a>
+                            </li>
 
  
 
@@ -170,7 +181,7 @@
        
     </body>
     <footer>
-        <p>footer</p>
+        <p>Tec Camp Tripoli project<br> Ola ElKhoja <br> Hajer Layas <br> </p>
     </footer>
     
 </html>
