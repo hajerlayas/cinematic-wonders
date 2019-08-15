@@ -1,4 +1,10 @@
 @extends('layout.master')
+<head>
+<style>
+footer{
+     position: fixed !important;
+            }
+</style></head>
 @section('content')
 
 <div class="row">
